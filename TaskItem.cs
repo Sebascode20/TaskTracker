@@ -29,13 +29,58 @@ namespace TaskTracker
             {
                 var tasks = loadTasks();
 
-                foreach (var item in tasks)
-                {
-                    Console.WriteLine(item.ToString());
-                }
+                foreach (var item in tasks) Console.WriteLine(item.ToString());
             });
 
             return listTaskCommand;
+        }
+
+        public Command ListTaskDone()
+        {
+            var listTaskDoneCommand = new Command("list-done", "list done tasks");
+
+            listTaskDoneCommand.SetHandler(() =>
+            {
+                var tasks = loadTasks().Where(t => t.status == Status.done).ToList();
+
+                if (tasks.Count == 0) Console.WriteLine("There are no done tasks");
+
+                else foreach (var item in tasks) Console.WriteLine(item.ToString());
+            });
+
+            return listTaskDoneCommand;
+        }
+
+        public Command ListTaskTodo()
+        {
+            var listTaskTodoCommand = new Command("list-todo", "list todo tasks");
+
+            listTaskTodoCommand.SetHandler(() =>
+            {
+                var tasks = loadTasks().Where(t => t.status == Status.todo).ToList();
+
+                if (tasks.Count == 0) Console.WriteLine("There are no tasks to do");
+
+                else foreach (var item in tasks) Console.WriteLine(item.ToString());
+            });
+
+            return listTaskTodoCommand;
+        }
+
+        public Command ListTaskInProgress()
+        {
+            var listTaskInProgress = new Command("list-in-progress", "list in-progress tasks");
+
+            listTaskInProgress.SetHandler(() =>
+            {
+                var tasks = loadTasks().Where(t => t.status == Status.inprogress).ToList();
+
+                if (tasks.Count == 0) Console.WriteLine("There are no tasks in progress");
+
+                else foreach (var item in tasks) Console.WriteLine(item.ToString());
+            });
+
+            return listTaskInProgress;
         }
 
         public Command Add()
@@ -139,6 +184,66 @@ namespace TaskTracker
             return deleteTaskCommand;
         }
 
+        public Command MarkInProgress()
+        {
+            var markProgress = new Command("mark-in-progress", "task in progress");
+
+            var idArg = new Argument<int>("id", "taskId");
+
+            markProgress.Add(idArg);
+
+            markProgress.SetHandler((int id) =>
+            {
+                string jsonString = File.ReadAllText("tasks.json");
+
+                List<TaskItem> userTasks = JsonSerializer.Deserialize<List<TaskItem>>(jsonString);
+
+                TaskItem taskInProgress = userTasks.FirstOrDefault(userTasks => userTasks.id == id);
+
+                if (taskInProgress == null) Console.WriteLine($"Task with id {id} not found");
+
+                else taskInProgress.status = Status.inprogress;
+
+                // Serializar el objeto actualizado a JSON
+                string newJsonString = JsonSerializer.Serialize(userTasks, new JsonSerializerOptions { WriteIndented = true });
+
+                // Sobrescribir el archivo JSON
+                File.WriteAllText("tasks.json", newJsonString);
+            }, idArg);
+
+            return markProgress;
+        }
+
+        public Command MarkDone()
+        {
+            var markDone = new Command("mark-done", "task done");
+
+            var idArg = new Argument<int>("id", "taskId");
+
+            markDone.Add(idArg);
+
+            markDone.SetHandler((int id) =>
+            {
+                string jsonString = File.ReadAllText("tasks.json");
+
+                List<TaskItem> userTasks = JsonSerializer.Deserialize<List<TaskItem>>(jsonString);
+
+                TaskItem taskDone = userTasks.FirstOrDefault(userTasks => userTasks.id == id);
+
+                if (taskDone == null) Console.WriteLine($"Task with id {id} not found");
+
+                else taskDone.status = Status.done;
+
+                // Serializar el objeto actualizado a JSON
+                string newJsonString = JsonSerializer.Serialize(userTasks, new JsonSerializerOptions { WriteIndented = true });
+
+                // Sobrescribir el archivo JSON
+                File.WriteAllText("tasks.json", newJsonString);
+            }, idArg);
+
+            return markDone;
+        }
+
         private static int generateId()
         {
             var tasks = loadTasks();
@@ -165,10 +270,7 @@ namespace TaskTracker
             File.WriteAllText(file, json);
         }
 
-        public override string ToString()
-        {
-            return $"ID: {id}, Descripción: {description}, Estado: {status}, Creado: {createdAt}, Actualizado: {updatedAt}";
-        }
+        public override string ToString() => $"ID: {id}, Description: {description}, Status: {status}, Created: {createdAt}, Updated: {updatedAt}";
     }
 
     enum Status

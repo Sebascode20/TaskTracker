@@ -1,16 +1,51 @@
 [
   {
     "id": 1,
-    "description": "Buy groceries and cook dinner",
+    "description": "Ir al supermercado y comprar leche, pan y huevos",
+    "status": 2,
+    "createdAt": "2025-07-07T11:32:22.8316701-06:00",
+    "updatedAt": "2025-07-07T11:32:22.8526585-06:00"
+  },
+  {
+    "id": 2,
+    "description": "Reunion por Zoom con el equipo de desarrollo a las 3 PM",
     "status": 0,
-    "createdAt": "2025-07-05T18:26:27.9846992-06:00",
-    "updatedAt": "2025-07-05T18:26:27.9980815-06:00"
+    "createdAt": "2025-07-07T11:33:04.0653578-06:00",
+    "updatedAt": "2025-07-07T11:33:32.072116-06:00"
   },
   {
     "id": 3,
-    "description": "Learn HTML",
+    "description": "Enviar el informe financiero del mes de junio al gerente",
+    "status": 1,
+    "createdAt": "2025-07-07T11:34:19.5376184-06:00",
+    "updatedAt": "2025-07-07T11:34:19.5376623-06:00"
+  },
+  {
+    "id": 4,
+    "description": "Agendar cita para revision dental",
+    "status": 2,
+    "createdAt": "2025-07-07T11:35:05.8715282-06:00",
+    "updatedAt": "2025-07-07T11:35:05.8716098-06:00"
+  },
+  {
+    "id": 6,
+    "description": "Pagar agua, luz e internet",
+    "status": 2,
+    "createdAt": "2025-07-07T11:36:12.2210817-06:00",
+    "updatedAt": "2025-07-07T11:36:12.2211353-06:00"
+  },
+  {
+    "id": 7,
+    "description": "Continuar lectura del libro Habitos Atomicos",
     "status": 0,
-    "createdAt": "2025-07-06T18:23:20.6456484-06:00",
-    "updatedAt": "2025-07-06T18:24:07.0057856-06:00"
+    "createdAt": "2025-07-07T11:37:01.2479553-06:00",
+    "updatedAt": "2025-07-07T11:48:05.0417325-06:00"
+  },
+  {
+    "id": 8,
+    "description": "Hacer ejercicio",
+    "status": 0,
+    "createdAt": "2025-07-07T11:37:38.1073019-06:00",
+    "updatedAt": "2025-07-07T11:38:22.7000026-06:00"
   }
 ]

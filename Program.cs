@@ -19,6 +19,16 @@ namespace TaskTracker
 
             rootCommand.AddCommand(task1.Delete());
 
+            rootCommand.AddCommand(task1.MarkInProgress());
+
+            rootCommand.AddCommand(task1.MarkDone());
+
+            rootCommand.AddCommand(task1.ListTaskDone());
+
+            rootCommand.AddCommand(task1.ListTaskTodo());
+
+            rootCommand.AddCommand(task1.ListTaskInProgress());
+
             await rootCommand.InvokeAsync(args);
         }
     }
