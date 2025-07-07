@@ -28,3 +28,4 @@ C:\Users\sebas\OneDrive\Documentos\Proyectos\TaskTracker\TaskTracker\obj\Debug\n
 C:\Users\sebas\OneDrive\Documentos\Proyectos\TaskTracker\TaskTracker\obj\Debug\net8.0\TaskTracker.pdb
 C:\Users\sebas\OneDrive\Documentos\Proyectos\TaskTracker\TaskTracker\obj\Debug\net8.0\TaskTracker.genruntimeconfig.cache
 C:\Users\sebas\OneDrive\Documentos\Proyectos\TaskTracker\TaskTracker\obj\Debug\net8.0\ref\TaskTracker.dll
+C:\Users\sebas\OneDrive\Documentos\Proyectos\TaskTracker\TaskTracker\obj\Debug\net8.0\TaskTracker.sourcelink.json

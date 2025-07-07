@@ -11,7 +11,13 @@ namespace TaskTracker
 
             var rootCommand = new RootCommand("Task Tracker CLI");
 
+            rootCommand.AddCommand(task1.List());
+
             rootCommand.AddCommand(task1.Add());
+
+            rootCommand.AddCommand(task1.Update());
+
+            rootCommand.AddCommand(task1.Delete());
 
             await rootCommand.InvokeAsync(args);
         }
