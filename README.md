@@ -23,6 +23,9 @@ TaskTracker is a console application developed in C# (.NET 8) for personal task 
 - `mark-in-progress <id>`: Mark a task as "in progress".
 - `mark-done <id>`: Mark a task as "done".
 
+## Project URL
+https://roadmap.sh/projects/task-tracker
+
 ## Installation and usage
 
 1. **Requirements**:  
