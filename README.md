@@ -30,15 +30,14 @@ TaskTracker is a console application developed in C# (.NET 8) for personal task 
    - Operating system compatible with .NET
 
 2. **Clone the repository**:
-3. git clone <https://github.com/Sebascode20/TaskTracker.git> cd TaskTracker
+   git clone <https://github.com/Sebascode20/TaskTracker.git> cd TaskTracker
 
 3. **Build the application**:
    dotnet build
 
 4. **Run the application**:
-5. dotnet run -- <command> [arguments]
-Example: dotnet run -- add "Buy milk"
-
+  dotnet run -- <command> [arguments]
+  Example: dotnet run -- add "Buy milk"
 
 ## Project structure
 
